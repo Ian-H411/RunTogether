@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class RunDetailViewController: UIViewController {
    
@@ -32,16 +33,45 @@ class RunDetailViewController: UIViewController {
     //optional holder for our run
     var run: Run?
     
+    // a bunch of variables to hold onto while running
+    
+    //what helps with starting and stopping location services
+    let locationManager = LocationManager.shared
+    
+    //this is what i will use to store the duration of the run which i can convert later
+    var seconds = 0
+    
+
+    var timer: Timer?
+    
+    //fancy little guy that will hold the total distance
+    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    
+    var listOfLocations: [CLLocation] = []
+    
     
     //MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
         
     }
+    //MARK: - HELPER FUNCS
     
-    func setView(){
+    func addSecond(){
+        seconds = seconds + 1
+        updateLabelsAndDisplay()
+    }
+    
+    func updateLabelsAndDisplay(){
+        
+        distanceLabel.text = MeasurementFormatter().string(from: distance)
+        
+        let mins = seconds % 60
+        
+        //TODO: - add functionality to change the label from total secs to a more useable format
+        timeLabel.text = String(seconds)
+        
         
     }
     

@@ -17,6 +17,7 @@
 		256111B6230A28DF00BEF8F1 /* RunController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B5230A28DF00BEF8F1 /* RunController.swift */; };
 		256111B8230A33EE00BEF8F1 /* RunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B7230A33EE00BEF8F1 /* RunDetailViewController.swift */; };
 		256111BA230A37F400BEF8F1 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B9230A37F400BEF8F1 /* UnitExtensions.swift */; };
+		256111BC230A390400BEF8F1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111BB230A390400BEF8F1 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		256111B5230A28DF00BEF8F1 /* RunController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunController.swift; sourceTree = "<group>"; };
 		256111B7230A33EE00BEF8F1 /* RunDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailViewController.swift; sourceTree = "<group>"; };
 		256111B9230A37F400BEF8F1 /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
+		256111BB230A390400BEF8F1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				256111B1230A243400BEF8F1 /* Race.swift */,
 				256111B3230A25E700BEF8F1 /* CoreDataStack.swift */,
 				256111B9230A37F400BEF8F1 /* UnitExtensions.swift */,
+				256111BB230A390400BEF8F1 /* LocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,6 +146,11 @@
 				TargetAttributes = {
 					25611194230A225F00BEF8F1 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -186,6 +194,7 @@
 				25611199230A225F00BEF8F1 /* AppDelegate.swift in Sources */,
 				256111B2230A243400BEF8F1 /* Race.swift in Sources */,
 				256111B8230A33EE00BEF8F1 /* RunDetailViewController.swift in Sources */,
+				256111BC230A390400BEF8F1 /* LocationManager.swift in Sources */,
 				256111A1230A225F00BEF8F1 /* RunTogether1_2.xcdatamodeld in Sources */,
 				256111BA230A37F400BEF8F1 /* UnitExtensions.swift in Sources */,
 				256111B4230A25E700BEF8F1 /* CoreDataStack.swift in Sources */,
