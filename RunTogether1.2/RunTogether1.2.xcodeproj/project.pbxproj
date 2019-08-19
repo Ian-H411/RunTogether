@@ -15,6 +15,8 @@
 		256111B2230A243400BEF8F1 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B1230A243400BEF8F1 /* Race.swift */; };
 		256111B4230A25E700BEF8F1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B3230A25E700BEF8F1 /* CoreDataStack.swift */; };
 		256111B6230A28DF00BEF8F1 /* RunController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B5230A28DF00BEF8F1 /* RunController.swift */; };
+		256111B8230A33EE00BEF8F1 /* RunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B7230A33EE00BEF8F1 /* RunDetailViewController.swift */; };
+		256111BA230A37F400BEF8F1 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111B9230A37F400BEF8F1 /* UnitExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		256111B1230A243400BEF8F1 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		256111B3230A25E700BEF8F1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		256111B5230A28DF00BEF8F1 /* RunController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunController.swift; sourceTree = "<group>"; };
+		256111B7230A33EE00BEF8F1 /* RunDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailViewController.swift; sourceTree = "<group>"; };
+		256111B9230A37F400BEF8F1 /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		256111AF230A23FA00BEF8F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				256111B7230A33EE00BEF8F1 /* RunDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				256111B1230A243400BEF8F1 /* Race.swift */,
 				256111B3230A25E700BEF8F1 /* CoreDataStack.swift */,
+				256111B9230A37F400BEF8F1 /* UnitExtensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,7 +185,9 @@
 				256111B6230A28DF00BEF8F1 /* RunController.swift in Sources */,
 				25611199230A225F00BEF8F1 /* AppDelegate.swift in Sources */,
 				256111B2230A243400BEF8F1 /* Race.swift in Sources */,
+				256111B8230A33EE00BEF8F1 /* RunDetailViewController.swift in Sources */,
 				256111A1230A225F00BEF8F1 /* RunTogether1_2.xcdatamodeld in Sources */,
+				256111BA230A37F400BEF8F1 /* UnitExtensions.swift in Sources */,
 				256111B4230A25E700BEF8F1 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
