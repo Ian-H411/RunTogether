@@ -49,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		255A1B3D231A0E7E0022694F /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				255E08802310D5D0004C576E /* ConverterController.swift */,
+				256111B9230A37F400BEF8F1 /* UnitExtensions.swift */,
+				256111BB230A390400BEF8F1 /* LocationManager.swift */,
+			);
+			path = HelperFiles;
+			sourceTree = "<group>";
+		};
 		2561118C230A225F00BEF8F1 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		25611197230A225F00BEF8F1 /* RunTogether1.2 */ = {
 			isa = PBXGroup;
 			children = (
+				255A1B3D231A0E7E0022694F /* HelperFiles */,
 				2561119C230A225F00BEF8F1 /* Main.storyboard */,
 				256111B0230A23FC00BEF8F1 /* Models */,
 				256111AE230A23F700BEF8F1 /* Controllers */,
@@ -93,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				256111B5230A28DF00BEF8F1 /* RunController.swift */,
-				255E08802310D5D0004C576E /* ConverterController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -111,8 +121,6 @@
 			children = (
 				256111B1230A243400BEF8F1 /* Race.swift */,
 				256111B3230A25E700BEF8F1 /* CoreDataStack.swift */,
-				256111B9230A37F400BEF8F1 /* UnitExtensions.swift */,
-				256111BB230A390400BEF8F1 /* LocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

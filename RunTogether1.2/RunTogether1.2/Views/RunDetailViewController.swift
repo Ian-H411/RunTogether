@@ -43,11 +43,12 @@ class RunDetailViewController: UIViewController {
     
     var isRunning:Bool = false
     
+    var calories:Double = 0.0
     
     var timer: Timer?
     
     //fancy little guy that will hold the total distance
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    var distance = Measurement(value: 0, unit: UnitLength.feet)
     
     var listOfLocations: [CLLocation] = []
     
@@ -78,9 +79,14 @@ class RunDetailViewController: UIViewController {
         
         let formattedPace = Converter.paceFormatter(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         
-        distanceLabel.text = "\(distance)"
+        let formatedDistance = Converter.measureMentFormatter(distance: distance)
+        distanceLabel.text = "\(formatedDistance)"
         
         timeLabel.text = "\(formattedTime)"
+        
+        caloriesLabel.text = "\(calories)"
+        
+        dateLabel.text = "\(Date())"
         
         averagePaceLabel.text = "\(formattedPace)"
         
@@ -101,11 +107,13 @@ class RunDetailViewController: UIViewController {
     func startRun(){
         //clear everything out and then go
         seconds = 0
+        calories = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         listOfLocations.removeAll()
         updateLabelsAndDisplay()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.addSecond()
+            self.caloriesBurnt()
         }
         startLocationTracking()
     }
@@ -120,6 +128,11 @@ class RunDetailViewController: UIViewController {
         locationManager.stopUpdatingLocation()
     }
     
+    func caloriesBurnt (){
+        let distanceInMiles = distance.converted(to: UnitLength.miles)
+        let burnt = 100 * distanceInMiles.value
+        calories = burnt
+    }
     
     //MARK: - Actions
     @IBAction func startStopButtonTapped(_ sender: Any) {

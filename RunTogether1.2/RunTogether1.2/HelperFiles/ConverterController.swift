@@ -27,7 +27,14 @@ struct Converter{
         if seconds == 0 {return ""}
             //thank you professor mortenson for finally providing me with some usefull info DVT
             let speedMagnitude = distance.value / Double(seconds)
-            let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.milesPerHour)
+            let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
             return formatter.string(from: speed.converted(to: outputUnit))
+    }
+    
+    static func measureMentFormatter(distance: Measurement<UnitLength>) -> String {
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = .naturalScale
+        return formatter.string(from: distance)
+        
     }
 }
