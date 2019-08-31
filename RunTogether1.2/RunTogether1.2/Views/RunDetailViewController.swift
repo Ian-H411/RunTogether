@@ -41,6 +41,8 @@ class RunDetailViewController: UIViewController {
     //this is what i will use to store the duration of the run which i can convert later
     var seconds = 0
     
+    var isRunning:Bool = false
+    
     
     var timer: Timer?
     
@@ -110,13 +112,24 @@ class RunDetailViewController: UIViewController {
     
     
     func stopRun(){
+        seconds = 0
+        distance = Measurement(value: 0, unit: UnitLength.meters)
+        listOfLocations.removeAll()
+        updateLabelsAndDisplay()
+        timer?.invalidate()
         locationManager.stopUpdatingLocation()
     }
     
     
     //MARK: - Actions
     @IBAction func startStopButtonTapped(_ sender: Any) {
-        startRun()
+        if isRunning{
+            stopRun()
+            isRunning = false
+        } else{
+            startRun()
+            isRunning = true
+        }
     }
     
     
