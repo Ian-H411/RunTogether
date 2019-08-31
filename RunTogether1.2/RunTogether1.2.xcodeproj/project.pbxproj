@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		255E08812310D5D0004C576E /* ConverterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255E08802310D5D0004C576E /* ConverterController.swift */; };
 		25611199230A225F00BEF8F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25611198230A225F00BEF8F1 /* AppDelegate.swift */; };
 		2561119E230A225F00BEF8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2561119C230A225F00BEF8F1 /* Main.storyboard */; };
 		256111A1230A225F00BEF8F1 /* RunTogether1_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2561119F230A225F00BEF8F1 /* RunTogether1_2.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		255E08802310D5D0004C576E /* ConverterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterController.swift; sourceTree = "<group>"; };
 		25611195230A225F00BEF8F1 /* RunTogether1.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTogether1.2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25611198230A225F00BEF8F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2561119D230A225F00BEF8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				256111B5230A28DF00BEF8F1 /* RunController.swift */,
+				255E08802310D5D0004C576E /* ConverterController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				256111B6230A28DF00BEF8F1 /* RunController.swift in Sources */,
+				255E08812310D5D0004C576E /* ConverterController.swift in Sources */,
 				25611199230A225F00BEF8F1 /* AppDelegate.swift in Sources */,
 				256111B2230A243400BEF8F1 /* Race.swift in Sources */,
 				256111B8230A33EE00BEF8F1 /* RunDetailViewController.swift in Sources */,

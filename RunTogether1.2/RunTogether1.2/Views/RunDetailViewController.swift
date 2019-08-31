@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 class RunDetailViewController: UIViewController {
-   
+    
     //MARK: - OUTLETS
     
     @IBOutlet weak var mapView: MKMapView!
@@ -41,7 +41,7 @@ class RunDetailViewController: UIViewController {
     //this is what i will use to store the duration of the run which i can convert later
     var seconds = 0
     
-
+    
     var timer: Timer?
     
     //fancy little guy that will hold the total distance
@@ -52,9 +52,16 @@ class RunDetailViewController: UIViewController {
     
     //MARK: - LIFECYCLE
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { 
         super.viewDidLoad()
         
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(animated)
+        //stops the timer
+        timer?.invalidate()
+        //turns off locations when we are navigated away
+        locationManager.stopUpdatingLocation()
     }
     //MARK: - HELPER FUNCS
     
@@ -65,20 +72,74 @@ class RunDetailViewController: UIViewController {
     
     func updateLabelsAndDisplay(){
         
-        distanceLabel.text = MeasurementFormatter().string(from: distance)
+        let formattedTime = Converter.formatTime(seconds: seconds)
         
-        let mins = seconds % 60
+        let formattedPace = Converter.paceFormatter(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         
-        //TODO: - add functionality to change the label from total secs to a more useable format
-        timeLabel.text = String(seconds)
+        distanceLabel.text = "\(distance)"
+        
+        timeLabel.text = "\(formattedTime)"
+        
+        averagePaceLabel.text = "\(formattedPace)"
         
         
     }
+    
+    func startLocationTracking(){
+        //set the delegate
+        locationManager.delegate = self
+        //tell it what activity we are doing
+        locationManager.activityType = .fitness
+        //how accurate in meters the device needs to be before giving us an update
+        locationManager.distanceFilter = 10
+        //start the machine
+        locationManager.startUpdatingLocation()
+    }
+    
+    func startRun(){
+        //clear everything out and then go
+        seconds = 0
+        distance = Measurement(value: 0, unit: UnitLength.meters)
+        listOfLocations.removeAll()
+        updateLabelsAndDisplay()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.addSecond()
+        }
+        startLocationTracking()
+    }
+    
+    
+    func stopRun(){
+        locationManager.stopUpdatingLocation()
+    }
+    
     
     //MARK: - Actions
     @IBAction func startStopButtonTapped(_ sender: Any) {
+        startRun()
     }
     
     
     
+}
+extension RunDetailViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //filter through all locations that location manager gives us
+        for location in locations{
+            //grab the time since this location
+            let timeOfLocation = location.timestamp.timeIntervalSinceNow
+            // thank you stack overflow for this beaut which will check our accuracy
+            guard location.horizontalAccuracy < 20 && abs(timeOfLocation) < 10 else {
+                continue
+            }
+            //grab the previous location we logged if its empty send it to the listof locations
+            if let lastLocation = listOfLocations.last{
+                //grab the change in distance using fancy swift funcs
+                let changeInDistance = location.distance(from: lastLocation)
+                //add the distance and our new measurement together and set it to the distance
+                distance = distance + Measurement(value: changeInDistance, unit: UnitLength.meters)
+            }
+            listOfLocations.append(location)
+        }
+    }
 }
